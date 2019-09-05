@@ -1,26 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-class Greeting extends React.Component{
-  constructor(props) {
-    super(props);
-  }
-
-  render(){
-    // let user;
-    // if (loggedIn) { user = state.entities.users[state.session.id] }
-    // let user =
-    return(
-      <div>
-        {this.props.currentUser ? (
-          <p>Welcome {this.props}</p>
-          <button onCLick={this.props.logout}></button>
-        ) : (
-
-          )
-      }
-      </div>
-    )
-  }
+const Greeting = ({ currentUser, logout }) => {
+  debugger
+  return (
+    <div>
+    {
+      currentUser ? (
+        <div>
+          <p>Welcome {currentUser.username}</p>
+          <button onClick={logout}></button>
+        </div>
+      ) : (
+        <div>
+          <Link to='/signup'>Sign Up</Link>
+          <Link to='/login'>Log In</Link>
+        </div>
+      )
+    }
+    </div>
+  )
 }
 
 export default Greeting;
